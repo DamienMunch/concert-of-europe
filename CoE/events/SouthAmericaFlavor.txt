@@ -1278,7 +1278,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 50
+			factor = 5
 			modifier = {
 				factor = 3
 				nationalvalue = nv_equality
@@ -1320,7 +1320,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 50
+			factor = 5
 			modifier = {
 				factor = 9
 				nationalvalue = nv_order

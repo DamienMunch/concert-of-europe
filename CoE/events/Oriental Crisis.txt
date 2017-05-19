@@ -515,7 +515,7 @@ country_event = {
 		create_alliance = EGY
 		EGY = { country_event = 31278 }
 		ai_chance = {
-			factor = 20
+			factor = 2
 			modifier = {
 				factor = 0.5
 				TUR = { has_recently_lost_war = yes }
@@ -562,7 +562,7 @@ country_event = {
 			EGY = { country_event = 31280 }
 		}
 		ai_chance = {
-			factor = 30
+			factor = 1
 			modifier = {
 				factor = 10
 				tag = RUS
@@ -585,7 +585,7 @@ country_event = {
 		relation = { who = TUR value = -25 }
 		relation = { who = EGY value = -25 }
 		ai_chance = {
-			factor = 50
+			factor = 5
 			modifier = {
 				factor = 0
 				OR = {

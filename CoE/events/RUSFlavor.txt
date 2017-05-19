@@ -946,7 +946,7 @@ country_event = {
 		diplomatic_influence = { who = CPL value = -50 }
 		relation = { who = RUS value = 50 }
 		ai_chance = {
-			factor = 60
+			factor = 6
 			modifier = {
 				factor = 4
 				government = absolute_monarchy
@@ -961,7 +961,7 @@ country_event = {
 		diplomatic_influence = { who = CPL value = 50 }
 		relation = { who = RUS value = -50 }
 		ai_chance = {
-			factor = 30
+			factor = 3
 			modifier = {
 				factor = 2
 				NOT = { relation = { who = RUS value = 0 } }
@@ -1010,7 +1010,7 @@ country_event = {
 		diplomatic_influence = { who = CPL value = 100 }
 		relation = { who = RUS value = -200 }
 		ai_chance = {
-			factor = 10
+			factor = 1
 			modifier = {
 				factor = 2
 				NOT = { relation = { who = RUS value = 0 } }
