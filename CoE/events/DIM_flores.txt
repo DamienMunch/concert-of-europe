@@ -80,7 +80,7 @@ province_event = {
 		ai_chance = { 
 			factor = 10
 			modifier = {
-				factor = 0.001
+				factor = 0.01
 				NOT = { 1909 = { owned_by = NET } }
 			}
 		}
