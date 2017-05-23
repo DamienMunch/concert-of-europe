@@ -892,6 +892,11 @@ wallingants = {
 }
 
 #### FRA - France ####
+carbonari_cells = {
+    global_pop_consciousness_modifier = 0.05
+    icon = 16
+}
+
 the_french_foreign_legion = {
 	prestige = 0.02
 	global_immigrant_attract = 0.1	#1%..

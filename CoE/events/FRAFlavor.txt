@@ -1386,136 +1386,167 @@ country_event = {
 
 #########################################################
 #														#
-#  				July Revolution Events 					#
+#  				Restoration Period Events   			#
 #														#
 #########################################################
 
 country_event = {
-	id = 37240
-	title = "EVTNAME37240" #The Accession of Charles X
-	desc = "EVTDESC37240"
-	picture = "monarchy"
-	fire_only_once = yes
-	
-	news = yes
-	news_title = "EVTNAME37240_NEWS"
-	news_desc_long = "EVTDESC37240_NEWS_LONG"
-	news_desc_medium = "EVTDESC37240_NEWS_MEDIUM"
-	news_desc_short = "EVTDESC37240_NEWS_SHORT"
+    id = 37238
+    title = "EVTNAME37238" #  The 4 sergeants of La Rochelle
+    desc = "EVTDESC37238"
+    picture = "arrested"
+    fire_only_once = yes
 
-	trigger = {
-		tag = FRA
-		year = 1823
-		NOT = { 
-			has_country_flag = july_revolution
-		}
-	}
+    news = yes
+    news_title = "EVTNAME37238_NEWS"
+    news_desc_long = "EVTDESC37238_NEWS_LONG"
+    news_desc_medium = "EVTDESC37238_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC37238_NEWS_SHORT"
 
-	mean_time_to_happen = {
-		months = 12
-	}
+    trigger = {
+        tag = FRA
+        year = 1822
+        OR = {
+            government = absolute_monarchy
+            government = prussian_constitutionalism
+            government = hms_government
+        }
+        NOT = {
+            year = 1836 # event death date, in case...
+        }
+    }
 
-	option = {
-		name = "Long live the king!"
-		set_country_flag = charles_x
-		political_reform = underground_parties
-		political_reform = no_meeting
-		plurality = -5
-		any_pop = {
-			limit = {
-				location = { is_colonial = no }
-			}
-			ideology = {
-				value = liberal
-				factor = 0.1
-			}
-			consciousness = 2
-			scaled_militancy = {
-				ideology = liberal
-				factor = 10
-			}
-		}
-		add_country_modifier = {
-			name = liberal_reaction
-			duration = 3650
-		}
-	}
+    mean_time_to_happen = {
+   		months = 6
+   	}
+
+    option = {
+        name = "Wait, they are martyrs now?"
+        officers = {
+        	militancy = -1
+        }
+        soldiers = {
+        	militancy = -1
+        }
+        middle_strata = {
+            limit = {
+                location = { is_colonial = no }
+            }
+            ideology = {
+                value = liberal
+                factor = 0.1
+            }
+            consciousness = 1
+        }
+        add_country_modifier = {
+            name = carbonari_cells
+            duration = 3650
+        }
+    }
 }
+
+#########################################################
 
 country_event = {
-	id = 37242
-	title = "EVTNAME37242" #Constitution Suspended
-	desc = "EVTDESC37242"
-	picture = "deliberation"
-	fire_only_once = yes
-	
-	news = yes
-	news_title = "EVTNAME37242_NEWS"
-	news_desc_long = "EVTDESC37242_NEWS_LONG"
-	news_desc_medium = "EVTDESC37242_NEWS_MEDIUM"
-	news_desc_short = "EVTDESC37242_NEWS_SHORT"
+    id = 37239
+    title = "EVTNAME37239" # Death of Louis XVIII
+    desc = "EVTDESC37239"
+    picture = "lind"
+    fire_only_once = yes
 
-	trigger = {
-		tag = FRA
-		has_country_flag = charles_x
-	}
+    news = yes
+    news_title = "EVTNAME37239_NEWS"
+    news_desc_long = "EVTDESC37239_NEWS_LONG"
+    news_desc_medium = "EVTDESC37239_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC37239_NEWS_SHORT"
 
-	mean_time_to_happen = {
-		months = 60
-		modifier = {
-			factor = 0.75
-			average_militancy = 4
-		}
-		modifier = {
-			factor = 0.5
-			average_militancy = 6
-		}
-		modifier = {
-			factor = 0.5
-			year = 1828
-		}
-		modifier = {
-			factor = 0.5
-			year = 1830
-		}
-		modifier = {
-			factor = 0.1
-			has_global_flag = DIM_belgian_revolution
-		}
-	}
+    trigger = {
+        tag = FRA
+        year = 1824
+        month = 5
+        OR = {
+            government = absolute_monarchy
+            government = prussian_constitutionalism
+            government = hms_government
+        }
+        NOT = {
+            year = 1836 # event death date, in case...
+        }
+    }
 
-	option = {
-		name = "The Ancien Regime returns..."
-		set_country_flag = three_glorious_days
-		political_reform = none_voting
-		political_reform = censored_press
-		plurality = -5
-		government = absolute_monarchy
-		ruling_party_ideology = reactionary
-		any_pop = {
-			limit = {
-				location = { is_colonial = no }
-			}
-			ideology = {
-				value = liberal
-				factor = 0.2
-			}
-			consciousness = 4
-			scaled_militancy = {
-				ideology = liberal
-				factor = 20
-			}
-		}
-		add_country_modifier = {
-			name = national_confusion
-			duration = 365
-		}
-		add_country_modifier = {
-			name = liberal_agitation
-			duration = 3650
-		}
-	}
+    mean_time_to_happen = {
+   		months = 1
+   	}
+
+    option = {
+        name = "The King is dead, long live the King!"
+        set_country_flag = charles_x
+    }
 }
+
+#########################################################
+
+country_event = {
+    id = 37240
+    title = "EVTNAME37240" # Charles X's Coronation
+    desc = "EVTDESC37240"
+    picture = "monarchy"
+    fire_only_once = yes
+
+    news = yes
+    news_title = "EVTNAME37240_NEWS"
+    news_desc_long = "EVTDESC37240_NEWS_LONG"
+    news_desc_medium = "EVTDESC37240_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC37240_NEWS_SHORT"
+
+    trigger = {
+        tag = FRA
+        has_country_flag = charles_x
+        NOT = {
+            has_country_flag = july_revolution
+        }
+        OR = {
+            government = absolute_monarchy
+            government = prussian_constitutionalism
+            government = hms_government
+        }
+        NOT = {
+            year = 1837 # Charles X died the 6th November 1836.
+        }
+    }
+
+    mean_time_to_happen = {
+       	months = 1
+    }
+
+    option = {
+        name = "Long live the king!"
+        any_pop = {
+            limit = {
+                location = { is_colonial = no }
+            }
+            consciousness = 1
+            scaled_consciousness = {
+                ideology = liberal
+                factor = 2
+            }
+            scaled_militancy = {
+                ideology = liberal
+                factor = 1
+            }
+            scaled_militancy = {
+                ideology = reactionary
+                factor = -5
+            }
+        }
+        add_country_modifier = {
+            name = liberal_reaction
+            duration = 3650
+        }
+    }
+}
+
+#########################################################
 
 country_event = {
 	id = 37244
@@ -1527,7 +1558,7 @@ country_event = {
 	
 	trigger = {
 		tag = FRA
-		has_country_flag = three_glorious_days
+		has_country_flag = saint_cloud_ordinances
 	}
 
 	mean_time_to_happen = {
@@ -1544,7 +1575,7 @@ country_event = {
 		name = "Charles will abdicate, and Louis Philippe will be king."
 		set_country_flag = july_revolution
 		clr_country_flag = charles_x
-		clr_country_flag = three_glorious_days
+		clr_country_flag = saint_cloud_ordinances
 		political_reform = wealth_weighted_voting
 		political_reform = two_per_state
 		political_reform = free_press
@@ -1568,6 +1599,7 @@ country_event = {
 		}
 		remove_country_modifier = liberal_reaction
 		remove_country_modifier = liberal_agitation
+		remove_country_modifier = carbonari_cells
 		add_country_modifier = {
 			name = national_confusion
 			duration = 365
@@ -1611,6 +1643,208 @@ country_event = {
 		}
 	}
 }
+
+#########################################################
+
+country_event = {
+    id = 37245
+    title = "EVTNAME37245" # Paris' National Guard dissolution
+    desc = "EVTDESC37245"
+    picture = "pinkertons"
+    fire_only_once = yes
+
+    news = yes
+    news_title = "EVTNAME37245_NEWS"
+    news_desc_long = "EVTDESC37245_NEWS_LONG"
+    news_desc_medium = "EVTDESC37245_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC37245_NEWS_SHORT"
+
+    trigger = {
+        tag = FRA
+        NOT = {
+            has_country_flag = july_revolution
+        }
+        OR = {
+            government = absolute_monarchy
+            government = prussian_constitutionalism
+            government = hms_government
+        }
+        has_country_flag = charles_x
+        year = 1827
+        controls = 425 # Paris
+        NOT = {
+            year = 1836 # event death date, in case...
+        }
+    }
+
+    mean_time_to_happen = {
+       	months = 4
+       	modifier = {
+        	factor = 0.25
+        	425 = { # Paris
+        	    average_militancy = 1
+        	}
+   		}
+    }
+
+    option = {
+        name = "Dissolve the parisian guard."
+        prestige = 1
+        425 = { # Paris
+            artisans = {
+                militancy = 3
+                ideology = {
+                	factor = 0.5
+                	value = liberal
+                }
+            }
+            middle_strata = {
+                militancy = 3
+                ideology = {
+                    factor = 0.5
+                    value = liberal
+                }
+            }
+        }
+
+        ai_chance = { factor = 90 }
+    }
+
+    option = {
+        name = "Dissolve the parisian guard and confiscate every weapons!"
+        prestige = 1
+        425 = { # Paris
+            artisans = {
+                militancy = 1
+                ideology = {
+                    factor = 0.9
+                    value = liberal
+                }
+            }
+            middle_strata = {
+                militancy = 1
+                ideology = {
+                    factor = 0.9
+                    value = liberal
+                 }
+            }
+        }
+
+        ai_chance = {
+            factor = 5
+        }
+    }
+
+    option = {
+        name = "Do nothing."
+        prestige = -10
+        rich_strata = {
+            militancy = 5
+        }
+
+        ai_chance = {
+            factor = 5
+        }
+    }
+}
+
+#########################################################
+
+country_event = {
+    id = 37246
+    title = "EVTNAME37246" # Billion Act and Anti-sacrilege act
+    desc = "EVTDESC37246"
+    picture = "jjhughes"
+    fire_only_once = yes
+
+    news = yes
+    news_title = "EVTNAME37246_NEWS"
+    news_desc_long = "EVTDESC37246_NEWS_LONG"
+    news_desc_medium = "EVTDESC37246_NEWS_MEDIUM"
+    news_desc_short = "EVTDESC37246_NEWS_SHORT"
+
+    trigger = {
+            tag = FRA
+            has_country_flag = charles_x
+            NOT = {
+                has_country_flag = july_revolution
+            }
+            OR = {
+                government = absolute_monarchy
+                government = prussian_constitutionalism
+                government = hms_government
+            }
+            AND = {
+                year = 1825
+                NOT = {
+                    year = 1836
+                }
+            }
+        }
+
+    mean_time_to_happen = {
+       	months = 4
+       	modifier = {
+        	factor = 0.5
+        	ideology = reactionary
+   		}
+    }
+
+    option = {
+        name = "We need to correct the past."
+        any_pop = {
+            limit = {
+                location = { is_colonial = no }
+            }
+            consciousness = 1
+            scaled_militancy = {
+       	        issue = pluralism
+            	factor = 2
+            }
+            scaled_militancy = {
+       	        issue = secularized
+            	factor = 3
+            }
+            scaled_militancy = {
+       	        issue = pro_atheism
+            	factor = 4
+            }
+            scaled_militancy = {
+       	        issue = moralism
+            	factor = -5
+            }
+            dominant_issue = {
+    			factor = 0.2
+    			value = pluralism
+    		}
+            dominant_issue = {
+               	factor = 0.15
+       			value = secularized
+       		}
+        }
+        ai_chance = {
+        	factor = 95
+        }
+    }
+
+    option = {
+        name = "I shall reign the same way my late brother did."
+        prestige = -1
+        scaled_militancy = {
+            issue = moralism
+            factor = 2
+        }
+        scaled_consciousness = {
+            issue = moralism
+            factor = 2
+        }
+        ai_chance = {
+            factor = 5
+        }
+    }
+}
+
+#########################################################
 
 country_event = {
 	id = 37300
